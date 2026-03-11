@@ -1,0 +1,15 @@
+[Unit]
+Description=Paw - Telegram to Claude Code proxy
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/opt/paw
+EnvironmentFile=/opt/paw/.env
+ExecStart=/opt/paw/.venv/bin/python bot.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
